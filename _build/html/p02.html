@@ -56,9 +56,55 @@
 <h1>2. 简介<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <div class="section" id="id2">
 <h2>2.1 目标<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li>学习关于Karel语言的基本知识和历史.</li>
+<li>学习Karel与其它语言的区别.</li>
+<li>学习这个课程能给你带来什么技能.</li>
+</ul>
 </div>
 <div class="section" id="id3">
 <h2>2.2 简史<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>教育编程语言Karel the Robot(卡雷尔机器人)是由Richard E. Pattis在他1981年出版的书Karel The Robot: A Gentle Introduction to the Art of Programming中介绍的. Pattis首先在斯坦福大学的课程中使用这个语言, 而今Karel已经在世界无数的学校中使用. 这个语言是以一个捷克作家Karel Capek命名, 他在其1921年的科幻剧R.U.R.(Rossum’s Universal Robots)中发明了“机器人”这个词.
+<a class="reference internal" href="#my-figure"><em>图1. Karel的各种实现</em></a> 展示了可以在网上下载的此语言的各种实现:</p>
+<div class="figure align-center" id="my-figure">
+<a class="reference internal image-reference" href="_images/2_01.png"><img alt="_images/2_01.png" src="_images/2_01.png" style="width: 100%;" /></a>
+<p class="caption">图1. Karel的各种实现</p>
+</div>
+<p>原始的Karel语言受到Pascal语言的强烈影, Pascal是一种1980年代流行的语言. 由于Pascal如今已经不再被采用, 我们更新语言并且将语法调整为与Python相近, Python是一种高级动态编程语言. 我们的调整使得语言更加容易使用. 为了展示,对比一下原始的Karel程序:</p>
+<div class="highlight-python"><div class="highlight"><pre>BEGINNING-OF-PROGRAM
+            DEFINE turnright AS
+            BEGIN
+                    turnleft
+                    turnleft
+                    turnleft
+            END
+            BEGINNING-OF-EXECUTION
+                    ITERATE 3 TIMES
+                    BEGIN
+                            turnright
+                            move
+                    END
+                    turnoff
+            END-OF-EXECUTION
+    END-OF-PROGRAM
+</pre></div>
+</div>
+<p>与Computing-works中Karel等价的代码片段</p>
+<div class="highlight-python"><div class="highlight"><pre>def turnright
+        repeat 3
+                left
+repeat 3
+        turnright
+        go
+</pre></div>
+</div>
+<p>事实上,Computing-works的Karel有一个右转的内联命令right, 所以上面的程序可以由下面3行书写:</p>
+<div class="highlight-python"><div class="highlight"><pre>repeat 3
+        right
+        go
+</pre></div>
+</div>
+<p>right命令并不是Karel语言的一部分——这是经过谨慎考虑后添加进去的. 添加此命令的主要原因是使Karel在走迷宫时看起来更优雅. 如果没有这个命令,任何右转都要先左转3次, 结果是Karel看上去就像龙卷风在肆虐. 当然保守的Karel爱好者仍然可以定义他们自己的rightturn命令. 我们还添加了一些语言方面的改变, 为了使孩子们感到更方便. 呼叫器被宝石取代, Karel在每个迷宫中有自己的家, 而且还有一个新的对象托盘, 使得机器人更加清晰应该把宝石放在何处. 较长的命令被较短的命令取代, 如leftturn变为left, move变为go, pickbeeper变为get, putbeeper变为put. Karel的句法实质上与Python等价, 除了在条件判断, 循环和新命令后面没有冒号——取消它的原因是考虑到我们最年轻的程序员在键入它时可能有困难.</p>
 </div>
 <div class="section" id="karel">
 <h2>2.3 Karel是谁<a class="headerlink" href="#karel" title="永久链接至标题">¶</a></h2>

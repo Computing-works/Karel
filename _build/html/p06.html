@@ -56,9 +56,60 @@
 <h1>6. 计数循环<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <div class="section" id="id2">
 <h2>6.1 目标<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li>学会使机器人重复做某事若干次</li>
+<li>学习循环体 <em>loop</em> 的含义和缩进的影响</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre>计数循环出现在所有过程性编程语言中,它允许我们以指定的次数重复一些命令或者一串命令.
+</pre></div>
+</div>
+<p>在Karel中,计数循环使用 <em>repeat</em> 命令.其它语言使用不同的命令,但思想都是一样的.</p>
 </div>
 <div class="section" id="id3">
 <h2>6.2 精巧的走路方式<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>看一下这个例子,Karel需要拾起一个宝石并返回它的家(方框).</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/6_01.png"><img alt="_images/6_01.png" src="_images/6_01.png" style="width: 80%;" /></a>
+<p class="caption">图1.重复某一行为若干次</p>
+</div>
+<p>当然我们可以输入</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">go</span>
+<span class="n">go</span>
+<span class="n">go</span>
+<span class="n">go</span>
+<span class="n">go</span>
+<span class="n">go</span>
+<span class="n">go</span>
+<span class="n">go</span>
+<span class="n">go</span>
+<span class="n">go</span>
+<span class="n">get</span>
+<span class="n">left</span>
+<span class="n">left</span>
+<span class="n">go</span>
+<span class="n">go</span>
+<span class="n">go</span>
+<span class="n">go</span>
+<span class="n">go</span>
+<span class="n">go</span>
+<span class="n">go</span>
+<span class="n">go</span>
+<span class="n">go</span>
+<span class="n">go</span>
+<span class="n">go</span>
+</pre></div>
+</div>
+<p>但是这样的程序看上去很糟糕!换句话说,有更优雅的方式实现同一目标,即通过告诉Karel用repeat重复循环go命令10次,拿宝石,转身,再用repeat重复循环go命令11次:</p>
+<div class="highlight-python"><div class="highlight"><pre>repeat 10
+  go
+get
+repeat 2
+  left
+repeat 11
+  go
+</pre></div>
+</div>
+<p>如此这般就可以了.也许你奇怪为什么有些命令缩进了?下面我们来解释一下.</p>
 </div>
 <div class="section" id="id4">
 <h2>6.3 循环体<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>

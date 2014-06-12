@@ -94,9 +94,66 @@
 </div>
 <div class="section" id="id5">
 <h2>5.4 程序<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre>将算法翻译成特定的计算机语言形成程序.
+</pre></div>
+</div>
+<p>在我们的课程里使用Karel语言. 对应于上述算法的程序是</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">go</span>
+<span class="n">go</span>
+<span class="n">get</span>
+<span class="n">left</span>
+<span class="n">left</span>
+<span class="n">go</span>
+<span class="n">go</span>
+<span class="n">go</span>
+</pre></div>
+</div>
+<p>通常将算法翻译为程序有多种方法.比如上述算法同样可以翻译为</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">go</span>
+<span class="n">go</span>
+<span class="n">right</span>
+<span class="n">get</span>
+<span class="n">right</span>
+<span class="n">go</span>
+<span class="n">go</span>
+<span class="n">go</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="id6">
 <h2>5.5 逻辑和句法错误<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre>算法中的错误是逻辑错误.
+</pre></div>
+</div>
+<p>让我们回到上面的问题,考虑以下算法</p>
+<div class="highlight-python"><div class="highlight"><pre>向前走三步
+拾起宝石
+转身
+向前走三步
+</pre></div>
+</div>
+<p>这将使机器人撞毁! 我们做出了错误的计划 &#8212; 逻辑错误.</p>
+<div class="highlight-python"><div class="highlight"><pre>程序中,诸如拼错命令,将&quot;10&quot;写成&quot;1O&quot;,或者忘记缩进则属于句法错误.
+</pre></div>
+</div>
+<p>找到下面程序的三处错误!</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">go</span>
+<span class="n">go</span>
+<span class="n">got</span>
+<span class="n">rlght</span>
+<span class="n">night</span>
+<span class="n">go</span>
+<span class="n">go</span>
+<span class="n">go</span>
+</pre></div>
+</div>
+<p>上述任何一种错误都属于 <em>bugs</em>,取消它们的过程叫做调试(<em>debugging</em>). 根据我们准备算法和写程序的认真程度,调试时间可以很长或者很短.
+刚刚编好的程序完全正确并不常见.</p>
+<div class="highlight-python"><div class="highlight"><pre>通常逻辑错误比句法错误更难被发现.因此,在开始编程前,要确保设计好的算法并且全面地考虑问题.
+</pre></div>
+</div>
+<p>当我们的程序出现句法错误,机器人会输出一个错误消息并且什么也不做.
+当我们的程序出现逻辑错误,很多事情都会发生:机器人会执行程序尽管并不能完成任务.或者它有可能触发错误消息并且停止程序.</p>
 </div>
 </div>
 

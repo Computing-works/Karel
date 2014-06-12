@@ -56,12 +56,41 @@
 <h1>5. 编程<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <div class="section" id="id2">
 <h2>5.1 目标<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li>写你第一个计算机程序</li>
+<li>了解算法和程序的区别</li>
+<li>了解逻辑错误与句法错误的不同</li>
+<li>了解调试是计算机编程不可分的一部分</li>
+</ul>
 </div>
 <div class="section" id="id3">
 <h2>5.2 输入命令<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>命令将输入左边面板中的代码元包. 在编程模式中, 我们可以使用命令left, right, go, get, put, repeat等还有许多. 一条或多条命令组成计算机程序或代码. 这里可以记住两条简单的规则:</p>
+<ol class="arabic simple">
+<li>总是在每行输入一个命令</li>
+<li>缩进是有影响的 &#8212; 每个命令在行头开始</li>
+</ol>
+<p>遵循这些规则有助于使你的代码干净,可读.</p>
 </div>
 <div class="section" id="id4">
 <h2>5.3 算法<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>Karel总是严格执行你的命令.没有例外.如果机器人做错了什么,比如撞墙了,那很有可能不是它的错误而是你的错误. 你的算法是错的.</p>
+<div class="highlight-python"><div class="highlight"><pre>算法是完成指定任务的一系列逻辑步骤.
+</pre></div>
+</div>
+<p>算法是用人类通用语言写的.考虑以下迷宫,Karel的任务是捡起宝石并返回它的家.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/5_01.png"><img alt="_images/5_01.png" src="_images/5_01.png" style="width: 60%;" /></a>
+<p class="caption">图1.拾起宝石并回家</p>
+</div>
+<p>这个任务可以用以下算法解决:</p>
+<div class="highlight-python"><div class="highlight"><pre>向前走两步
+拾起宝石
+转回身
+向前走三步
+</pre></div>
+</div>
+<p>下一节我们将此算法转化为计算机程序.</p>
 </div>
 <div class="section" id="id5">
 <h2>5.4 程序<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>

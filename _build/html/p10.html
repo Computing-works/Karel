@@ -64,6 +64,21 @@
 </div>
 <div class="section" id="id3">
 <h2>10.2 定义新命令<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>新命令被保留关键字 <em>def</em> 定义.
+例如,某程序中机器人在很多情况下都需要转身,于是定义一个 <em>turnback</em> 命令将十分方便:</p>
+<div class="highlight-python"><div class="highlight"><pre>def turnback
+  repeat 2
+    left
+</pre></div>
+</div>
+<p>注意新定义的命令体需要缩进,类似于循环体和条件判断.
+在某些程序中,Karel需要捡起它下面的所有宝石.因此我们定义一个新的命令 <em>getall</em> :</p>
+<div class="highlight-python"><div class="highlight"><pre>def getall
+  while gem
+    get
+</pre></div>
+</div>
+<p>我们可以像使用其他命令一样使用新定义的命令.</p>
 </div>
 <div class="section" id="id4">
 <h2>10.3 街机游戏<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>

@@ -56,15 +56,71 @@
 <h1>9. 条件循环<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <div class="section" id="id2">
 <h2>9.1 目标<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li>学习在不知道循环次数的情况下,重复命令序列直到满足某条件.</li>
+</ul>
+<p>条件循环(while循环)在各种过程化编程语言中都存在.</p>
+<p>它可以使我们在事先不确切知道循环次数的情况下执行循环.比如,使Karel径走到最近的墙处.由于它不可能事先度量到达墙的距离,因此不可能通过repeat命令实现.</p>
 </div>
 <div class="section" id="id3">
 <h2>9.2 寻找遗失的宝石<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>为了说明while循环的用法,我们考虑如下图所示的情形.Karel随机站在迷宫的中间,它之前沿着围墙走的时候遗失了一枚宝石,它不确定在什么位置,只是知道在外围墙边上的某个地方. 让我们来写一个程序帮助机器人找到这个宝石.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/9_01.png"><img alt="_images/9_01.png" src="_images/9_01.png" style="width: 60%;" /></a>
+<p class="caption">图1.在围墙边上有一枚宝石</p>
+</div>
+<p>以下5行程序可完成任务:</p>
+<div class="highlight-python"><div class="highlight"><pre>while not gem
+  while not wall
+    go
+  left
+get
+</pre></div>
+</div>
 </div>
 <div class="section" id="id4">
 <h2>9.3 分解步骤写程序<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>写上面那样的程序难吗? 一点也不! 但是我们有必要一步一步构造,而不是试图一次性写好.这种方式是很多有经验的程序员的方式.第一步,写一个循环将机器人引向围墙.很明显,为了得到宝石必须先走道围墙边.之后,我们将机器人左转(或右转),面向墙壁总不能将机器人引向他处:</p>
+<div class="highlight-python"><div class="highlight"><pre>while not wall
+  go
+left
+</pre></div>
+</div>
+<p>看这个程序,我们意识到它可以将机器人引向下一个角落并左转.这非常好,我们可以不断重复这个过程直到找到宝石!因此作为第二步,我们再添加一个外循环:</p>
+<div class="highlight-python"><div class="highlight"><pre>while not gem
+  while not wall
+    go
+  left
+</pre></div>
+</div>
+<p>作为第三步,Karel需要拾起地上的宝石.于是我们得到了上述完整的程序:</p>
+<div class="highlight-python"><div class="highlight"><pre>while not gem
+  while not wall
+    go
+  left
+get
+</pre></div>
+</div>
 </div>
 <div class="section" id="id5">
 <h2>9.4 爬岩石山<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>这次Karel站在一个很高的悬崖前面:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/9_02.png"><img alt="_images/9_02.png" src="_images/9_02.png" style="width: 60%;" /></a>
+<p class="caption">图2.Karel爬悬崖</p>
+</div>
+<p>它知道悬崖上有一个宝石,希望得到它,但是它不知道悬崖有多高,也不知道宝石的确切位置. 让我们帮助它爬上悬崖得到宝石!</p>
+<p>通过以下7行程序可以实现:</p>
+<div class="highlight-python"><div class="highlight"><pre>while wall
+  left
+  go
+  right
+while not gem
+  go
+get
+</pre></div>
+</div>
+<p>作为练习,不妨扩展这个程序使Karel爬下悬崖并回到原始位置.</p>
 </div>
 </div>
 

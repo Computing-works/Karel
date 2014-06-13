@@ -113,15 +113,85 @@ repeat 11
 </div>
 <div class="section" id="id4">
 <h2>6.3 循环体<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre>需要循环的命令集被叫做循环体.在Karel中,循环体通过缩进定义.
+这与Python是一样的.一些其它语言用其它方式,比如C/C++用花括号.
+</pre></div>
+</div>
+<p>在上面的程序中,每个循环体只有一条命令,但是如果有多条命令,它们都应该被缩进.在Karel中,你可以选择2空格或4空格缩进.前者使代码看起来更紧凑,后者更容易阅读.</p>
 </div>
 <div class="section" id="id5">
 <h2>6.4 缩进错误<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>错误的缩进会改变循环体,并导致整个程序出现意外.举例,假设下图所示迷宫.Karel的任务是沿着墙走并停在左上角,面朝南.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/6_02.png"><img alt="_images/6_02.png" src="_images/6_02.png" style="width: 40%;" /></a>
+<p class="caption">图2.Karel沿着障碍走</p>
+</div>
+<p>这可以用以下4行代码实现:</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre>repeat 3
+  go
+  go
+  left
+</pre></div>
+</div>
+</div></blockquote>
+<p>执行完上述代码后机器人的位置如下图:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/6_03.png"><img alt="_images/6_03.png" src="_images/6_03.png" style="width: 40%;" /></a>
+<p class="caption">图3.执行完程序Karel的位置</p>
+</div>
+<p>现在我们假设最后一条命令没有被缩进:</p>
+<div class="highlight-python"><div class="highlight"><pre>repeat 3
+  go
+  go
+left
+</pre></div>
+</div>
+<p>现在相当于告知机器人向前走6步再左转 &#8212; 这将使它撞毁在墙上!</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/6_04.png"><img alt="_images/6_04.png" src="_images/6_04.png" style="width: 40%;" /></a>
+<p class="caption">图4.错误缩进导致Karel撞墙</p>
+</div>
+<p>错误消息将提示你问题发生在代码何处:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/6_05.png"><img alt="_images/6_05.png" src="_images/6_05.png" style="width: 100%;" /></a>
+</div>
 </div>
 <div class="section" id="id6">
 <h2>6.5 套嵌循环<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>在上面的程序中,go命令写在了连续的两行.这没有问题,因为如果改为repeat仍然需要两行.但考虑如下情形,Karel需要绕着这个块走一圈再回到原点.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/6_06.png"><img alt="_images/6_06.png" src="_images/6_06.png" style="width: 40%;" /></a>
+<p class="caption">图6.绕大块走一圈</p>
+</div>
+<p>在repeat中连续写5行go命令就显得不合适了 &#8212; 程序看起来会很长.下面的代码就更简洁:</p>
+<div class="highlight-python"><div class="highlight"><pre>repeat 4
+  repeat 5
+    go
+  left
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>当一个循环中包含另一个循环,我们称之为循环套嵌.注意缩进规则适用于每个循环.
+</pre></div>
+</div>
 </div>
 <div class="section" id="id7">
 <h2>6.6 沿四方块行走<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>让我们看最后一个例子:Karel站在两条路的交叉口,周围有4个块,如下图所示.Karel的任务是绕第一个块一圈回到交叉点,再绕第二个,以此类推,直到绕完4个块并回到原点.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/6_07.png"><img alt="_images/6_07.png" src="_images/6_07.png" style="width: 40%;" /></a>
+<p class="caption">图7.站在交叉口</p>
+</div>
+<p>可以用以下代码完成任务:</p>
+<div class="highlight-python"><div class="highlight"><pre>repeat 4
+  repeat 4
+    repeat 5
+      go
+    left
+  right
+</pre></div>
+</div>
+<p>不妨花些时间建造这个迷宫并运行此程序,值得这个时间.</p>
 </div>
 </div>
 

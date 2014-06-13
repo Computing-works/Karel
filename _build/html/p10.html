@@ -82,6 +82,88 @@
 </div>
 <div class="section" id="id4">
 <h2>10.3 街机游戏<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>这次Karel需要经历本关的所有层,如 <a class="reference internal" href="#my-figure-01"><em>图1.Karel正在玩的街机游戏</em></a> 所示. 拾起所有宝石, 并且回到右上方的家方块.
+在每层之间只有一个洞. 起初机器人站在第一层的某个地方.</p>
+<div class="figure align-center" id="my-figure-01">
+<a class="reference internal image-reference" href="_images/10_01.png"><img alt="_images/10_01.png" src="_images/10_01.png" style="width: 60%;" /></a>
+<p class="caption">图1.Karel正在玩的街机游戏</p>
+</div>
+<p>很明显,这个问题比我们之前遇到的任何问题都复杂. 所以让我们将任务分解为每一层需要做什么的小任务.
+可以确定,它需要不断转身,所以让我们首先定义 <em>turnback</em> 命令:</p>
+<div class="highlight-python"><div class="highlight"><pre># New command to turn back:
+def turnback
+  repeat 2
+    left
+</pre></div>
+</div>
+<p>由于机器人不知道宝石的确切位置,它总是需要不断地扫描整个楼层. 我们假设它站在每层的最西边面向东:</p>
+<div class="highlight-python"><div class="highlight"><pre># Sweep one floor from left to right.
+# Assumes that robot stands at the
+# West end, facing East:
+def sweep
+  while not wall
+    while gem
+      get
+    go
+    # Do not forget gems in the last square:
+    while gem
+      get
+</pre></div>
+</div>
+<p>接下来我们需要一个命令将机器人移到每层的最左端并使它朝东,
+满足命令 <em>sweep</em> 的需要.</p>
+<p>定义这个命令为 <em>gowest</em></p>
+<div class="highlight-python"><div class="highlight"><pre># Reach West end of the current floor
+# and turn around to face East:
+def gowest
+  # Turn West:
+  while not north
+    left
+  left
+  # Go to West end:
+  while not wall
+    go
+  # Turn around:
+  turnback
+</pre></div>
+</div>
+<p>快成功了! 我们最后的需要是向上爬一层楼. 定义为 <em>moveup</em> :</p>
+<div class="highlight-python"><div class="highlight"><pre># Find the opening and move one
+# floor up. Assumes that robot is
+# at the East end of a floor,
+# facing East:
+def moveup
+  if not home
+  # Face North:
+  left
+  # Find opening:
+  while wall
+    left
+    go
+    right
+    # Pass through opening:
+  go
+</pre></div>
+</div>
+<p>最后一步, 我们把之前定义的命令 <em>gowest</em>, <em>sweep</em>, <em>moveup</em> 整合到一起定义新的命令 <em>arcade</em> :</p>
+<div class="highlight-python"><div class="highlight"><pre># Main procedure:
+def arcade
+  while not home
+    gowest
+    sweep
+    moveup
+</pre></div>
+</div>
+<p>主程序只有一条命令 <em>arcade</em>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Main program:</span>
+<span class="n">arcade</span>
+</pre></div>
+</div>
+<p>如 <a class="reference internal" href="#my-figure-02"><em>图2.程序运行结束后的效果</em></a></p>
+<div class="figure align-center" id="my-figure-02">
+<a class="reference internal image-reference" href="_images/10_02.png"><img alt="_images/10_02.png" src="_images/10_02.png" style="width: 60%;" /></a>
+<p class="caption">图2.程序运行结束后的效果</p>
+</div>
 </div>
 </div>
 

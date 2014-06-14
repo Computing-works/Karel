@@ -56,42 +56,292 @@
 <h1>11. 变量<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <div class="section" id="id2">
 <h2>11.1 目标<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li>学习编程中使用变量的目的</li>
+<li>学习使用数字,逻辑变量和字符串</li>
+<li>学习定义和使用函数并返回值</li>
+<li>了解全局变量与局部变量的不同</li>
+</ul>
 </div>
 <div class="section" id="karel">
 <h2>11.2 Karel的成长<a class="headerlink" href="#karel" title="永久链接至标题">¶</a></h2>
+<p>Karel长大了,它离开父母的家开始实验自己的生活.因此,机器人的家方块不再出现在迷宫中.
+另外还有一些其他变化反映Karel的成长 &#8212; 它装备了一个GPS定位器可以确定它在迷宫中的位置,
+它可以打印消息,使用变量和列表,利用可以返回值的函数,使用复杂逻辑,使用随机决定等等.
+功能函数的完整介绍可以参见 <a class="reference internal" href="p16.html"><em>第十六部分</em></a> .</p>
 </div>
 <div class="section" id="id3">
 <h2>11.3 变量的目的<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>在编程中,变量用来储存之后可能使用的有用信息.
+这些信息有可能是一个数字,一个单词,一句话或者一个逻辑值(<cite>True</cite> 或 <cite>False</cite>).
+变量也会很复杂 &#8212; 我们会遇到列表(<em>list</em>),它可以储存多个值,比如机器人的路径,宝石的位置等.</p>
 </div>
 <div class="section" id="id4">
 <h2>11.4 变量的类型<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>我们每个人都使用变量.一例例子就是我们的名字.</p>
+<p><em class="xref std std-ref">字符串</em></p>
+<p>假设你的名字叫&#8221;Melissa&#8221;.当你两岁的时候,你将它存在你的记忆中.</p>
+<p>用计算机语言,你定义了一个变量 <em>my_name</em> :</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">my_name</span> <span class="o">=</span> <span class="s">&quot;Melissa&quot;</span>
+</pre></div>
 </div>
-<div class="section" id="gpspring">
-<h2>11.5 使用GPS装备和pring命令<a class="headerlink" href="#gpspring" title="永久链接至标题">¶</a></h2>
+<p>变量 <em>my_name</em> 储存了这个字符串.</p>
+<p><em class="xref std std-ref">数值</em></p>
+<p>之后我们了解到有很多重要的数字,比如</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">seconds_per_minute</span> <span class="o">=</span> <span class="mi">60</span>
+</pre></div>
+</div>
+<p>而变量 <em>hours_per_day</em> 的值是24等等.</p>
+<p>但我们同样会使用值不断变化的变量,如 <em>days_per_year</em> , <em>number_of_my_pets</em> 等.</p>
+<p>在Karel中,我们只使用整数(不是一般的实数),因为这个语言的目的不在于解决数学问题.</p>
+<p><em class="xref std std-ref">逻辑变量</em></p>
+<p>逻辑变量只能储存两个值, <tt class="docutils literal"><span class="pre">True</span></tt> 或 <tt class="docutils literal"><span class="pre">False</span></tt>.我们在生活中也经常使用它:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">I_have_a_dog</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">I_own_a_car</span> <span class="o">=</span> <span class="bp">False</span>
+</pre></div>
+</div>
+<p>当然,对于不同的人这个变量的值是不同的.逻辑变量和操作将在 <a class="reference internal" href="p13.html"><em>第十三部分</em></a> 详细讨论.</p>
+</div>
+<div class="section" id="gpsprint">
+<h2>11.5 使用GPS装备和print命令<a class="headerlink" href="#gpsprint" title="永久链接至标题">¶</a></h2>
+<p>Karel可以在任意时刻通过 <tt class="docutils literal"><span class="pre">gpsx</span></tt> 和 <tt class="docutils literal"><span class="pre">gpsy</span></tt> 获得自己的坐标.
+它还掌握了一项新本领: 通过 <tt class="docutils literal"><span class="pre">print</span></tt> 命令输出文本消息.
+这几个命令的使用方法可以通过下面这个简单例子说明:  Karel获取在迷宫中的位置并打印出来</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/11_01.png"><img alt="_images/11_01.png" src="_images/11_01.png" style="width: 60%;" /></a>
+<p class="caption">图1.Karel站在迷宫西南角,坐标为(0,0)</p>
+</div>
+<p>程序如下:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="s">&quot;Horizontal position:&quot;</span><span class="p">,</span> <span class="n">gpsx</span>
+<span class="k">print</span><span class="s">&quot;Vertical position:&quot;</span><span class="p">,</span> <span class="n">gpsy</span>
+</pre></div>
+</div>
+<p>输出为</p>
+<div class="highlight-python"><div class="highlight"><pre>Horizontal position: 0
+Vertical position: 0
+</pre></div>
+</div>
+<p>迷宫的宽度为15(东西方向),高度为12(南北方向). 如果Karel站在东北角</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/11_02.png"><img alt="_images/11_02.png" src="_images/11_02.png" style="width: 60%;" /></a>
+<p class="caption">图2.Karel站在迷宫东北角,坐标为(14,11)</p>
+</div>
+<p>那么程序输出为</p>
+<div class="highlight-python"><div class="highlight"><pre>Horizontal position: 14
+Vertical position: 11
+</pre></div>
+</div>
+<p>将Karel移动到迷宫的其他位置并且重新运行程序,熟悉GPS设备的用法!</p>
+<p><tt class="docutils literal"><span class="pre">print</span></tt> 命令可以用来输出更复杂的语句,其中变量和文本用逗号分割:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span> <span class="s">&quot;My GPS coordinates are&quot;</span><span class="p">,</span> <span class="n">gpsx</span><span class="p">,</span><span class="s">&quot;and&quot;</span><span class="p">,</span> <span class="n">gpsy</span>
+</pre></div>
+</div>
+<p>对于上一个迷宫,程序输出:</p>
+<div class="highlight-python"><div class="highlight"><pre>My GPS coordinates are 14 and 11
+</pre></div>
+</div>
 </div>
 <div class="section" id="id5">
 <h2>11.6 自定义函数<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>我们可以在命令体中用 <em>return</em> 关键字返回一个值.这种命令被称为函数(<em>function</em>).函数同样用关键字 <em>def</em> 定义.例如,如下函数 <em>countsteps</em> 使机器人走到最近的墙并且返回需要的步数:</p>
+<div class="highlight-python"><div class="highlight"><pre>def countsteps
+  n = 0
+  while not wall
+    go
+    inc(n)
+  return n
+</pre></div>
+</div>
+<p>要注意一些事情:</p>
+<ul class="simple">
+<li>变量 <cite>n</cite> 被语句 <tt class="docutils literal"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">0</span></tt> 创建并初始化. 在Karel中,我们不需要事先声明变量类型,解释器会根据它首次被赋予的值自动判断其类型.</li>
+<li><tt class="docutils literal"><span class="pre">inc()</span></tt> 函数为整数变量的值加1. 同样还有一个函数 <tt class="docutils literal"><span class="pre">dec()</span></tt>,为整数变量的值减1.更多解释参考11.10节.</li>
+</ul>
+<p>函数可以被如下使用:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">num</span> <span class="o">=</span> <span class="n">countsteps</span>
+<span class="k">print</span> <span class="s">&quot;I reached wall in&quot;</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span><span class="s">&quot;steps!&quot;</span>
+</pre></div>
+</div>
+<p>我们首先创建了新的变量 <em>num</em> ,并且用函数 <tt class="docutils literal"><span class="pre">countsteps</span></tt> 返回的整数初始化它.之后打印出结果.</p>
+<p>如图2所示情形,将输出:</p>
+<div class="highlight-python"><div class="highlight"><pre>I reached wall in 11 steps!
+</pre></div>
+</div>
 </div>
 <div class="section" id="id6">
 <h2>11.7 度量墙的长度<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>这里Karel的任务是度量和打印输出任意墙的长度.</p>
+<p>墙有开头和结尾,但不包含闭循环; 机器人面朝墙的第一块砖,墙总是在它的左边,如图所示:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/11_03.png"><img alt="_images/11_03.png" src="_images/11_03.png" style="width: 60%;" /></a>
+<p class="caption">图3.度量任意形状墙的长度</p>
+</div>
+<p>这个问题可以用只有13行的自定义函数 <tt class="docutils literal"><span class="pre">measurewall</span></tt> 完成:</p>
+<div class="highlight-python"><div class="highlight"><pre># Function to measure the length
+# of an arbitrary wall:
+def measurewall
+  l = 0
+  while wall
+    inc(l)
+    left
+    if not wall
+      go
+      right
+      if not wall
+        go
+        right
+        if not wall
+          return l
+
+# Call the function:
+print &quot;Length of wall is&quot;, measurewall
+</pre></div>
+</div>
+<p>运行程序后得到输出:</p>
+<div class="highlight-python"><div class="highlight"><pre>Length of wall is: 53
+</pre></div>
+</div>
+<p>你不妨试着改变墙的形状,看看此程序是否工作正常.</p>
 </div>
 <div class="section" id="id7">
 <h2>11.8 创建和实例化数值变量<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>在Karel中,可以通过多种方式创建和初始化数值变量:</p>
+<ol class="arabic simple">
+<li>通过赋予它们整数. 新变量 <em>a</em> 被创建, 给它设为0:</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>通过函数 <tt class="docutils literal"><span class="pre">gpsx</span></tt> . 新变量 <em>posx</em> 被创建, 赋予它 <tt class="docutils literal"><span class="pre">gpsx</span></tt> 的值:</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">posx</span> <span class="o">=</span> <span class="n">gpsx</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>通过函数 <tt class="docutils literal"><span class="pre">gpsy</span></tt> . 新变量 <em>posy</em> 被创建, 赋予它 <tt class="docutils literal"><span class="pre">gpsy</span></tt> 的值:</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">posy</span> <span class="o">=</span> <span class="n">gpsy</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li>通过已存在的变量实例化新变量. 已存在整数变量 <em>var1</em>, 那么新变量 <em>var2</em> 可以用如下方式创建:</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">var2</span> <span class="o">=</span> <span class="n">var1</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li>通过已知函数的返回值实例化新变量. 使用我们之前定义的函数 <tt class="docutils literal"><span class="pre">countsteps</span></tt> 定义新变量:</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">num</span> <span class="o">=</span> <span class="n">countsteps</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="id8">
 <h2>11.9 改变数值变量的值<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<p>数值变量的值可以被随时更新, 用上述方法之一.</p>
 </div>
 <div class="section" id="inc-dec">
 <h2>11.10 使用inc()和dec()函数<a class="headerlink" href="#inc-dec" title="永久链接至标题">¶</a></h2>
+<p>Karel根本不懂数学符号 <tt class="docutils literal"><span class="pre">+</span></tt> 和 <tt class="docutils literal"><span class="pre">-</span></tt> .但为了计数的需要,它可以分别用函数 <tt class="docutils literal"><span class="pre">inc()</span></tt> 或 <tt class="docutils literal"><span class="pre">dec()</span></tt> 来增加或减少整数一个单位. 也可以一次性增加或减少更多的单位, 通过 <tt class="docutils literal"><span class="pre">inc(n,num)</span></tt> 或 <tt class="docutils literal"><span class="pre">dec(n,num)</span></tt> 方法.
+这里 <tt class="docutils literal"><span class="pre">n</span></tt> 是变量名称, <tt class="docutils literal"><span class="pre">num</span></tt> 是一个整数.</p>
 </div>
 <div class="section" id="id9">
 <h2>11.11 比较运算<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<p>数字变量可以通过标准算符 <tt class="docutils literal"><span class="pre">&gt;</span></tt> , <tt class="docutils literal"><span class="pre">&lt;</span></tt> , <tt class="docutils literal"><span class="pre">&gt;=</span></tt> , <tt class="docutils literal"><span class="pre">&lt;=</span></tt> , <tt class="docutils literal"><span class="pre">==</span></tt> , <tt class="docutils literal"><span class="pre">!=</span></tt> , <tt class="docutils literal"><span class="pre">&lt;&gt;</span></tt> 进行比较.
+分别读作&#8221;大于&#8221;,&#8221;小于&#8221;,&#8221;大于等于&#8221;,&#8221;小于等于&#8221;,&#8221;等于&#8221;,&#8221;不等于&#8221;(后两个符号含义相同).
+每次比较的结果是一个逻辑值 <tt class="docutils literal"><span class="pre">True</span></tt> 或 <tt class="docutils literal"><span class="pre">False</span></tt> ,可以被用在条件判断,条件循环,或赋予一个变量.如下:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">printa</span> <span class="o">&lt;</span> <span class="n">b</span>
+</pre></div>
+</div>
+<p>输出:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="bp">True</span>
+</pre></div>
+</div>
+<p>代码:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span>
+<span class="k">print</span> <span class="n">c</span>
+</pre></div>
+</div>
+<p>输出:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="bp">False</span>
+</pre></div>
+</div>
+<p>代码:</p>
+<div class="highlight-python"><div class="highlight"><pre>a = 0
+while a &lt;= 5
+  print a
+  inc(a)
+</pre></div>
+</div>
+<p>输出:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="mi">0</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">4</span>
+<span class="mi">5</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="id10">
 <h2>11.12 文本字符串<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<p>字符串变量的创建和实例化类似于数值变量:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">robots_name</span> <span class="o">=</span><span class="s">&quot;Karel&quot;</span>
+</pre></div>
+</div>
+<p>它们可以被打印:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="s">&quot;Robot’s name is&quot;</span><span class="p">,</span> <span class="n">robots_name</span>
+</pre></div>
+</div>
+<p>输出:</p>
+<div class="highlight-python"><div class="highlight"><pre>Robot’s name is Karel
+</pre></div>
+</div>
+<p>一个字符串变量可以用来实例化另一个新变量.比如有人想将机器人命名为&#8221;Carlos&#8221;(西班牙版本的&#8221;Karel&#8221;),
+并在变量 <em>robots_name_orig</em> 中储存它的的原始名字. 可通过如下方法:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">robots_name_orig</span> <span class="o">=</span> <span class="n">robots_name</span>
+<span class="n">robots_name</span> <span class="o">=</span> <span class="s">&quot;Carlos&quot;</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="id11">
 <h2>11.13 局部和全局变量<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<p>定义在函数中的变量叫作局部变量,它只能在这个函数内使用.
+如果我们试图在函数外使用它,就会抛处错误.
+以下代码, 变量 <em>a</em> 定义在函数 <em>myfunction</em> 中, 是局部变量:</p>
+<div class="highlight-python"><div class="highlight"><pre>def myfunction
+  a = 1
+  retur
+
+nmyfunction
+print a
+</pre></div>
+</div>
+<p>当运行时,代码抛出如下错误信息:</p>
+<div class="highlight-python"><div class="highlight"><pre>Unknown variable/procedure &quot;a&quot;
+</pre></div>
+</div>
+<p>另一方面,在主程序(<tt class="docutils literal"><span class="pre">main</span></tt>)中定义的变量是全局变量.它可以在函数中使用.如下所示:</p>
+<div class="highlight-python"><div class="highlight"><pre>def myfunction
+  print &quot;b =&quot;, b
+  return
+
+b = 5
+myfunction
+</pre></div>
+</div>
+<p>输出为:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>总之我们应该尽可能多的使用局部变量,这样可使代码更安全和更好的组织.使用全局变量要更加谨慎或避免.
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -118,7 +368,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#karel">11.2 Karel的成长</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id3">11.3 变量的目的</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id4">11.4 变量的类型</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#gpspring">11.5 使用GPS装备和pring命令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gpsprint">11.5 使用GPS装备和print命令</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id5">11.6 自定义函数</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id6">11.7 度量墙的长度</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id7">11.8 创建和实例化数值变量</a></li>

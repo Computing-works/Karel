@@ -56,9 +56,41 @@
 <h1>14. 随机性<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <div class="section" id="id2">
 <h2>14.1 目标<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li>学习如何使用 <tt class="docutils literal"><span class="pre">rand</span></tt> 命令作出随机决定.</li>
+<li>学习模拟随机过程.</li>
+</ul>
+<p>Karel可以通过 <tt class="docutils literal"><span class="pre">rand</span></tt> 命令作出随机决定,并且等概率地返回 <tt class="docutils literal"><span class="pre">True</span></tt> 或 <tt class="docutils literal"><span class="pre">False</span></tt> .
+通常使用方法如下:</p>
+<div class="highlight-python"><div class="highlight"><pre>if rand
+  do_something
+else
+  do_something_else
+</pre></div>
+</div>
 </div>
 <div class="section" id="id3">
 <h2>14.2 利用随机性搜索整个迷宫<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>作为第一个例子,这里有一个简短的程序使Karel在迷宫中随机游走,寻找宝石:</p>
+<div class="highlight-python"><div class="highlight"><pre># This is a simple way to
+# create an infinite loop:
+while True
+  # Make a random number of steps forward:
+  while rand
+    if not wall
+      go
+    if gem
+      get
+
+  # Turn either right or left:
+  if rand
+    right
+  else
+    left
+</pre></div>
+</div>
+<p>过一些时候(也许很长),机器人可以访问到所有宝石并捡起它们!
+实际上这个程序是无限循环,因此需要你亲自按红色按钮来终止它.</p>
 </div>
 </div>
 

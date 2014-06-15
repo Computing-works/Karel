@@ -53,13 +53,115 @@
 <h1>16. 附录-不同模式的功能性概述<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <div class="section" id="id2">
 <h2>16.1 第一阶段(前4个部分)<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>第一步,可以用点按钮的方式引导Karel</p>
+<ul class="simple">
+<li>go ... 向前走一步</li>
+<li>left ... 左转</li>
+<li>right ... 右转</li>
+<li>get ... 拾起一枚宝石</li>
+<li>put ... 放下一枚宝石</li>
+</ul>
 </div>
 <div class="section" id="id3">
 <h2>16.2 编程模式(5-15部分)<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>在编程模式中,Karel有如下功能:</p>
+<ul>
+<li><p class="first">go ... 向前走一步</p>
+</li>
+<li><p class="first">left ... 左转</p>
+</li>
+<li><p class="first">right ... 右转</p>
+</li>
+<li><p class="first">put ... 放下一枚宝石</p>
+</li>
+<li><p class="first">get ... 拾起一枚宝石</p>
+</li>
+<li><p class="first">repeat ... 计数循环(重复给定次数的操作)</p>
+</li>
+<li><p class="first">if/else ... 条件判断</p>
+</li>
+<li><p class="first">while ... 条件循环(重复某操作直到满足某条件)</p>
+</li>
+<li><p class="first">def ... 定义一个新的命令</p>
+</li>
+<li><p class="first">wall ... 检测机器人前方是否有墙</p>
+</li>
+<li><p class="first">gem ... 检测机器人正下方是否有宝石</p>
+</li>
+<li><p class="first">tray ... 检测机器人正下方是否有托盘</p>
+</li>
+<li><p class="first">empty ... 检测机器人的包里是否没有宝石</p>
+</li>
+<li><p class="first">home ... 检测机器人是否在家方块</p>
+</li>
+<li><p class="first">north ... 检测机器人是否面朝北</p>
+</li>
+<li><p class="first">print ... 打印字符串和变量</p>
+</li>
+<li><p class="first">gpsx ... 水平方向的GPS坐标</p>
+</li>
+<li><p class="first">gpsy ... 垂直方向的GPS坐标</p>
+</li>
+<li><dl class="first docutils">
+<dt>a = 0 ... 创建一个变量 <em>a</em> 并实例化为0</dt>
+<dd><p class="first last">更多实例化方法参考 <a class="reference internal" href="p11.html"><em>11.8节</em></a></p>
+</dd>
+</dl>
+</li>
+<li><p class="first">inc(a) ... 增加变量 <em>a</em> 的值一个单位</p>
+</li>
+<li><p class="first">inc(a,value) ... 增加变量 <em>a</em> 的值 <em>value</em> 个单位</p>
+</li>
+<li><p class="first">dec(a) ... 减少变量 <em>a</em> 的值一个单位</p>
+</li>
+<li><p class="first">dec(a,value) ... 减少变量 <em>a</em> 的值 <em>value</em> 个单位</p>
+</li>
+<li><p class="first">rand ... 随机命令(随机返回 <tt class="docutils literal"><span class="pre">True</span></tt> 或 <tt class="docutils literal"><span class="pre">False</span></tt>)</p>
+</li>
+<li><p class="first">return ... 返回一个值,在函数中使用</p>
+</li>
+<li><p class="first">and ... 二元逻辑运算 <tt class="docutils literal"><span class="pre">and</span></tt></p>
+</li>
+<li><p class="first">or ... 二元逻辑运算 <tt class="docutils literal"><span class="pre">or</span></tt></p>
+</li>
+<li><p class="first">not ... 一元逻辑运算 <tt class="docutils literal"><span class="pre">not</span></tt></p>
+</li>
+<li><p class="first">L[] ... 创建空列表 <em>L</em></p>
+</li>
+<li><p class="first">len(L) ... 列表 <em>L</em> 的长度</p>
+</li>
+<li><p class="first">L[i] ... 列表 <em>L</em> 的第 <em>i+1</em> 个元素.注:L[0]是列表的第一个元素</p>
+</li>
+<li><p class="first">L.append(x) ... 将 <em>x</em> 扩展到列表 <em>L</em> 的结尾</p>
+</li>
+<li><p class="first">x = L.pop() ... 删除列表 <em>L</em> 的最后一个元素并赋值给变量 <em>x</em></p>
+</li>
+<li><p class="first">del L[i] ... 删除列表 <em>L</em> 的第i个元素</p>
+</li>
+<li><p class="first">for x in L ... 以Python的方式分析列表.</p>
+</li>
+<li><p class="first">数值和布尔(逻辑)变量</p>
+</li>
+<li><p class="first">复杂逻辑表达</p>
+</li>
+<li><p class="first">返回值的函数</p>
+</li>
+<li><p class="first">列表</p>
+</li>
+<li><p class="first">递归</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="section" id="id4">
 <h1>17. 进一步学习<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h1>
+<p>祝贺你,你已经完成了Karel机器人!希望你喜欢这个课程.如果你希望改进此应用或教材,我们愿意倾听.
+如果你有一个新的游戏或Karel的练习,请告知我们:-)</p>
+<p>现在你已经为学习下一个编程语言做好了准备!我们建议你学习Python,它是被广泛使用的动态编程语言,
+如商业,科学,工程和其他领域.我们同样提供精致的Python课程.</p>
+<p>无论如何,我们的团队希望你好运,希望成为你最爱的书签!</p>
+<blockquote>
+<div>你的作者.</div></blockquote>
 </div>
 
 

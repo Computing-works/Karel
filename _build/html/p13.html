@@ -56,15 +56,198 @@
 <h1>13. 逻辑之旅<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <div class="section" id="id2">
 <h2>13.1 目标<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li>复习基本逻辑</li>
+<li>实践逻辑表达式</li>
+<li>学习真值表</li>
+</ul>
 </div>
 <div class="section" id="id3">
 <h2>13.2 简单的逻辑表达<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>正如我们所了解,逻辑表达要么&#8221;是( <tt class="docutils literal"><span class="pre">True</span></tt> )&#8221;,要么&#8221;否( <tt class="docutils literal"><span class="pre">False</span></tt> )&#8221;.
+<tt class="docutils literal"><span class="pre">True</span></tt> 和 <tt class="docutils literal"><span class="pre">False</span></tt> 就是它的值.
+下面是生活中的实际例子,试着回答是( <tt class="docutils literal"><span class="pre">True</span></tt> )或否( <tt class="docutils literal"><span class="pre">False</span></tt> ):</p>
+<ol class="arabic simple">
+<li>&#8220;我今年12岁.&#8221;</li>
+<li>&#8220;我父亲是教师.&#8221;</li>
+<li>&#8220;我的学校Karel课程的合作伙伴.&#8221;</li>
+</ol>
+<p>下面是Karel中的例子:</p>
+<ol class="arabic simple">
+<li><tt class="docutils literal"><span class="pre">wall</span></tt> ... True 如果机器人前面是墙, 否则False.</li>
+<li><tt class="docutils literal"><span class="pre">gem</span></tt> ... True 如果机器人正下方有宝石, 否则False.</li>
+<li><tt class="docutils literal"><span class="pre">tray</span></tt> ... True 如果机器人正下方是托盘, 否则False.</li>
+<li><tt class="docutils literal"><span class="pre">north</span></tt> ... True 如果机器人面朝北, 否则False.</li>
+<li><tt class="docutils literal"><span class="pre">home</span></tt> ... True 如果机器人在家方块, 否则False.</li>
+<li><tt class="docutils literal"><span class="pre">empty</span></tt> ... True 如果机器人的包是空的, 否则False.</li>
+</ol>
 </div>
 <div class="section" id="id4">
 <h2>13.3 复杂的逻辑表达<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>在编程和日常生活中,我们经常遇到更复杂的逻辑表达.</p>
+<p>通常将两个或更多简单逻辑表达用&#8221;和(and)&#8221;,&#8221;或(or)&#8221;,&#8221;非(not)&#8221;组合在一起形成复杂的逻辑语句.</p>
+<p>比如,语句&#8221;我星期日去滑雪,如果天气好并且Michael和我一起去.&#8221;,此句包含三个简单的逻辑表达,为明了我们将它分开:</p>
+<p>A = &#8220;我星期日去滑雪.&#8221;</p>
+<p>B = &#8220;天气好.&#8221;</p>
+<p>C = &#8220;Michael和我一起去.&#8221;</p>
+<p>这涉及B和C的逻辑与(and)运算,原始语句可以写为:</p>
+<div class="highlight-python"><div class="highlight"><pre>if B and C then A
+</pre></div>
+</div>
+<p>编程中崇尚这种简洁的表达,这可以使代码更短.
+我们可以预测未来,知道周末天气很好而且Michael会一起去.
+于是将上述语句翻译为如下代码,并打印出A的值:</p>
+<div class="highlight-python"><div class="highlight"><pre># Let’s say that weather will be good
+# and Michael will join you:
+B = True
+C = True
+# This is how you decide:
+if B and C
+  A = True
+else
+  A =False
+
+# Print the result:
+if A
+  print &quot;I will go ski on Sunday.&quot;
+else
+  print &quot;I will not go ski on Sunday.&quot;
+</pre></div>
+</div>
+<p>输出:</p>
+<div class="highlight-python"><div class="highlight"><pre>I will go ski on Sunday.
+</pre></div>
+</div>
 </div>
 <div class="section" id="id5">
 <h2>13.4 真值表<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>真值表给出不同逻辑语句的运算结果.
+逻辑与(and)的真值表为:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="29%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">A</th>
+<th class="head">B</th>
+<th class="head">A and B</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="row-odd"><td>True</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="row-even"><td>False</td>
+<td>True</td>
+<td>False</td>
+</tr>
+<tr class="row-odd"><td>True</td>
+<td>True</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>逻辑或(or)的真值表为:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="29%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">A</th>
+<th class="head">B</th>
+<th class="head">A or B</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="row-odd"><td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="row-even"><td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="row-odd"><td>True</td>
+<td>True</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>逻辑否(not)的真值表为:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">A</th>
+<th class="head">not A</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>True</td>
+<td>False</td>
+</tr>
+<tr class="row-odd"><td>False</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>最后,语句&#8221;if A then B&#8221;的真值表为:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="22%" />
+<col width="57%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">A</th>
+<th class="head">B</th>
+<th class="head">if A then B</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>False</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="row-odd"><td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="row-even"><td>True</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="row-odd"><td>True</td>
+<td>True</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>有人会对最后一个真值表感到奇怪.他们问:为什么当A为非时,表达式&#8221;if A then B&#8221;是真的? 但事实如此.
+考虑个例子:&#8221;如果地球是平的,那么月球也是平的.&#8221;这个表达是真的,这句话本身没有什么错误.因为地球不是平的,所以基于&#8221;地球是平的&#8221;作出的任何推断就没有什么关系了.</p>
 </div>
 </div>
 

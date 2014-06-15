@@ -1,14 +1,127 @@
 13. 逻辑之旅
-===========
+=============
 
 13.1 目标
 ----------
 
+- 复习基本逻辑
+- 实践逻辑表达式
+- 学习真值表
+
 13.2 简单的逻辑表达
------------------
+--------------------
+
+正如我们所了解,逻辑表达要么"是( ``True`` )",要么"否( ``False`` )".
+``True`` 和 ``False`` 就是它的值.
+下面是生活中的实际例子,试着回答是( ``True`` )或否( ``False`` ):
+
+1. "我今年12岁."
+2. "我父亲是教师."
+3. "我的学校Karel课程的合作伙伴."
+
+下面是Karel中的例子:
+
+1. ``wall`` ... True 如果机器人前面是墙, 否则False.
+2. ``gem`` ... True 如果机器人正下方有宝石, 否则False.
+3. ``tray`` ... True 如果机器人正下方是托盘, 否则False.
+4. ``north`` ... True 如果机器人面朝北, 否则False.
+5. ``home`` ... True 如果机器人在家方块, 否则False.
+6. ``empty`` ... True 如果机器人的包是空的, 否则False.
 
 13.3 复杂的逻辑表达
------------------
+--------------------
+
+在编程和日常生活中,我们经常遇到更复杂的逻辑表达.
+
+通常将两个或更多简单逻辑表达用"和(and)","或(or)","非(not)"组合在一起形成复杂的逻辑语句.
+
+比如,语句"我星期日去滑雪,如果天气好并且Michael和我一起去.",此句包含三个简单的逻辑表达,为明了我们将它分开:
+
+A = "我星期日去滑雪."
+
+B = "天气好."
+
+C = "Michael和我一起去."
+
+这涉及B和C的逻辑与(and)运算,原始语句可以写为:
+
+::
+
+	if B and C then A
+
+编程中崇尚这种简洁的表达,这可以使代码更短.
+我们可以预测未来,知道周末天气很好而且Michael会一起去.
+于是将上述语句翻译为如下代码,并打印出A的值:
+
+::
+
+	# Let’s say that weather will be good
+	# and Michael will join you:
+	B = True
+	C = True
+	# This is how you decide:
+	if B and C
+	  A = True
+	else
+	  A =False
+
+	# Print the result:
+	if A
+	  print "I will go ski on Sunday."
+	else
+	  print "I will not go ski on Sunday."
+
+输出:
+
+::
+
+	I will go ski on Sunday.
 
 13.4 真值表
------------
+------------
+
+真值表给出不同逻辑语句的运算结果.
+逻辑与(and)的真值表为:
+
+												=====  =====  =======
+  		  										  A      B    A and B
+												=====  =====  =======
+												False  False  False
+												True   False  False
+												False  True   False
+												True   True   True
+												=====  =====  =======
+
+逻辑或(or)的真值表为:
+
+												=====  =====  =======
+  		  										  A      B    A or B
+												=====  =====  =======
+												False  False  False
+												True   False  True
+												False  True   True
+												True   True   True
+												=====  =====  =======
+
+逻辑否(not)的真值表为:
+
+	====== ======
+  	   A    not A
+	====== ======
+ 	 True   False
+ 	 False  True
+ 	====== ======
+
+最后,语句"if A then B"的真值表为:
+
+												=====  =====  =============
+  		  										  A      B     if A then B
+												=====  =====  =============
+												False  False       True
+												False  True        True
+												True   False   	   False
+												True   True        True
+												=====  =====  =============
+
+有人会对最后一个真值表感到奇怪.他们问:为什么当A为非时,表达式"if A then B"是真的? 但事实如此.
+考虑个例子:"如果地球是平的,那么月球也是平的."这个表达是真的,这句话本身没有什么错误.因为地球不是平的,所以基于"地球是平的"作出的任何推断就没有什么关系了.
